@@ -34,7 +34,7 @@ fun esUnTriangulo(a: Int , b: Int , c: Int){
 22
     }else{
 23
-        println("Los valores no forman un triangulo")
+        println("Los valores no forman un triangulo.")
 24
     }
 25
