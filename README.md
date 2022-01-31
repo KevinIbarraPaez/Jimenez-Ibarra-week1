@@ -7,4 +7,5 @@ Práctica 2: Validación de cadena
 Asignción 2: Mastermind
 
 Enrique Jiménez Marín
+
 Kevin Enrique Ibarra Paez
