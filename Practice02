@@ -1,0 +1,63 @@
+/**
+2
+ * You can edit, run, and share this code.
+3
+ * play.kotlinlang.org
+4
+ */
+5
+fun main() {
+6
+    println(verificaCadena("nombre")) // true
+7
+     println(verificaCadena("_nombre")) // true
+8
+     println(verificaCadena("_12")) //true
+9
+     println(verificaCadena("")) //false
+10
+     println(verificaCadena("012")) //false
+11
+     println(verificaCadena("no$")) //false
+12
+}
+13
+​
+14
+fun verificaCadena(cadena : String): Boolean{
+15
+ fun esLetra(c : Char) = c in 'a'..'z' || c in 'A'..'Z'
+16
+ fun esNumero(c: Char) = c in '0'..'9'
+17
+    if(cadena.isNullOrEmpty()){
+18
+        return false
+19
+    }
+20
+    var primerC=cadena.get(0)
+21
+    
+22
+    if(primerC != '_' && !=esLetra(primerC)){
+23
+        return false
+24
+    }
+25
+    for(c in cadena){
+26
+        if(!esLetra(c) && !esNumero(c) && c!='_'){
+27
+            return false
+28
+        }
+29
+    }
+30
+    
+31
+return true
+32
+}
