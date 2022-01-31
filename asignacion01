@@ -1,0 +1,91 @@
+/**
+2
+ * You can edit, run, and share this code.
+3
+ * play.kotlinlang.org
+4
+ */
+5
+data class Evaluacion(val posicionExacta: Int, val posicionIncorrecta : Int))
+6
+​
+7
+fun main(args: Array <String>) {
+8
+    println(evaluar("ABCD", "ABCD")== Evaluacion(4,0))
+9
+    println(evaluar("ABCD", "CDBA")== Evaluacion(0,4))
+10
+    println(evaluar("ABCD", "ABDC")== Evaluacion(2,2))
+11
+    println(evaluar("AABC", "ADFE")== Evaluacion(1,0))
+12
+    println(evaluar("AABC", "DEAA")== Evaluacion(0,2))
+13
+    
+14
+   
+15
+}
+16
+fun evaluar(secret: String , guess: String):Evaluacion{
+17
+    var posicionExacta=0
+18
+    var posicionIncorrecta=0
+19
+    
+20
+    var compareSecret = secret
+21
+    var compareGuess=guess
+22
+    
+23
+    for ((idx , value)in guess.withIndex()){
+24
+        when(value){
+25
+            secret[idx]->{
+26
+                posicionExacta++
+27
+                compareGuess = compareGuess.replaceFirst(value,'0')
+28
+                
+29
+                if(secret[idx] ==compareSecret[idx]){
+30
+                    compareSecret = compareSecret.replaceFirst(value,'0')
+31
+                    
+32
+                }else{
+33
+                    posicionIncorrecta--
+34
+                }
+35
+                
+36
+            }else->{
+37
+               posicionIncorrecta += min(compareSecret.count{ it == value }, compareGuess.count{ it == value })
+38
+               compareSecret = compareSecret.replace(value,'0')
+39
+​
+40
+            }
+41
+        }
+42
+    }
+43
+    
+44
+    return Evaluacion(posicionExacta , posicionIncorrecta)
+45
+    
+46
+}
