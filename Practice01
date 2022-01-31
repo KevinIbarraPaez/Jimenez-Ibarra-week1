@@ -1,0 +1,43 @@
+fun main() {
+6
+    esUnTriangulo(15,15,15)
+7
+}
+8
+​
+9
+fun esUnTriangulo(a: Int , b: Int , c: Int){
+10
+    if(a<=0 || b<=0 || c<=0){
+11
+        println("Error , valores negativos")
+12
+    }else if(a+b>c &&b+c>a && a+c>b){
+13
+        
+14
+        if(a==b && c==b){
+15
+            println("Es un triangulo equilatero")
+16
+        } else if((a==b && b!=c) || (b==c && c!=a) || (c==a && a!=b)){
+17
+            println("Es un triangulo isoseles")
+18
+        }
+19
+        else{
+20
+            println("Es un triangulo escaleno")
+21
+        }
+22
+    }else{
+23
+        println("Los valores no forman un triangulo")
+24
+    }
+25
+                 
+26
+}
